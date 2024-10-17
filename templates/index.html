@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enter Your Name</title>
+    <script>
+        function validateForm() {
+            const nameInput = document.getElementById('name').value;
+            const namePattern = /^[A-Za-z]+$/;
+
+            if (!namePattern.test(nameInput)) {
+                alert('Please enter a valid name (letters only).');
+                return false;  // Prevent form submission
+            }
+            return true;  // Allow form submission
+        }
+    </script>
 </head>
 <body>
     <h1>Enter Your Name</h1>
-    <form action="/greet" method="post">
+    <form action="/greet" method="post" onsubmit="return validateForm()">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <button type="submit">Submit</button>

@@ -19,9 +19,9 @@ def greet():
         flash('Invalid name! Please enter letters only.')
         return redirect(url_for('index'))
 
-    return f'Hello, {name}!'
+    # Pass the name to the greet.html template
+    return render_template('greet.html', name=name)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
